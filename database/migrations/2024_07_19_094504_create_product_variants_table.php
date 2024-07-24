@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('variant_size');
             $table->string('variant_color')->nullable();
             $table->decimal('price', 10, 2)->nullable();
+            $table->string('image');
             $table->integer('stock')->default(0);
             $table->timestamps();
 
