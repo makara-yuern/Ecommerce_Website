@@ -9,20 +9,21 @@
             <input type="hidden" name="user_id" id="edit-user-id">
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- First name -->
                 <div>
                     <label for="edit-first-name" class="block mb-1 name-input">First Name</label>
                     <input type="text" name="first_name" id="edit-first-name" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
                     <div id="edit-error-name" class="text-red-500 mt-1"></div>
                 </div>
-
+                <!-- last name -->
                 <div>
                     <label for="edit-last-name" class="block mb-1 name-input">Last Name</label>
                     <input type="text" name="last_name" id="edit-last-name" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
                     <div id="edit-error-name" class="text-red-500 mt-1"></div>
                 </div>
-
             </div>
-
+            
+            <!-- Email -->
             <div>
                 <label for="edit-email" class="block mb-1 email-input">Email</label>
                 <input type="email" name="email" id="edit-email" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
@@ -30,6 +31,7 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Select country -->
                 <div class="select-user-country">
                     <label for="edit-userCountry" class="mb-1">Select a Country</label>
                     <select id="edit-userCountry" name="country_code" class="form-select custom-select">
@@ -40,7 +42,7 @@
                     </select>
                     <div id="edit-error-country" class="text-red-500 mt-1"></div>
                 </div>
-
+                <!-- Select user type -->
                 <div class="select-user-type">
                     <label for="edit-userType" class="mb-1">Select a Type</label>
                     <select id="edit-userType" name="user_type_id" class="form-select-user-type custom-select">
@@ -54,6 +56,7 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Is Admin -->
                 <div class="admin">
                     <span class="ml-2 mb-1">Admin</span>
                     <input type="checkbox" name="isAdmin" id="edit-isAdmin" class="toggle-checkbox hidden">
@@ -62,7 +65,7 @@
                         <span class="toggle-thumb block w-6 h-6 rounded-full bg-white absolute transition-transform duration-300 transform"></span>
                     </label>
                 </div>
-
+                <!-- Is Active -->
                 <div class="status">
                     <span class="ml-2 mb-1">Status</span>
                     <input type="checkbox" name="isActive" id="edit-isActive" class="toggle-checkbox hidden">
@@ -74,9 +77,11 @@
             </div>
 
             <div class="flex items-center mt-4 space-x-4">
+                <!-- Update form -->
                 <button type="submit" id="update-user" class="rounded-md transition-colors duration-200 bg-blue-500 text-white px-4 py-2 hover:bg-blue-600">
                     Update
                 </button>
+                <!-- Cancel form -->
                 <a href="#" id="closeEditModal" class="text-center rounded-md bg-gray-200 px-4 py-2 hover:bg-gray-300">
                     Cancel
                 </a>
