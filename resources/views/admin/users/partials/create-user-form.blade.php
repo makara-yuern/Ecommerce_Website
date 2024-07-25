@@ -6,12 +6,13 @@
             @csrf
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- First name -->
                 <div>
                     <label for="create-first-name" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
                     <input type="text" name="first_name" id="create-first-name" required class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Enter your first name">
                     <div id="error-name" class="text-red-500 text-sm mt-1"></div>
                 </div>
-
+                <!-- Last name -->
                 <div>
                     <label for="create-last-name" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
                     <input type="text" name="last_name" id="create-last-name" required class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Enter your last name">
@@ -20,7 +21,7 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
+                <!-- select country -->
                 <div class="select-user-country">
                     <label for="userCountry" class="mb-1">Select a Country</label>
                     <select id="userCountry" name="country_code" class="form-select-user-country custom-select">
@@ -31,18 +32,20 @@
                     </select>
                     <div id="error-country" class="text-red-500 mt-1"></div>
                 </div>
+                <!-- select user type -->
                 <div class="select-user-type">
                     <label for="userType" class="mb-1">User Type</label>
                     <select id="userType" name="user_type_id" required class="form-select-user-type custom-select">
                         <option value="">Select User Type</option>
                         @foreach($userTypes as $userType)
-                            <option value="{{ $userType->id }}">{{ $userType->type }}</option>
+                        <option value="{{ $userType->id }}">{{ $userType->type }}</option>
                         @endforeach
                     </select>
                     <div id="error-user-type" class="text-red-500 text-sm mt-1"></div>
                 </div>
             </div>
 
+            <!-- Email -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                     <label for="create-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
@@ -52,6 +55,7 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Is Admin -->
                 <div class="admin">
                     <span class="ml-2 mb-1">Admin</span>
                     <input type="checkbox" name="isAdmin" id="isAdmin" class="toggle-checkbox hidden">
@@ -60,7 +64,7 @@
                         <span class="toggle-thumb block w-6 h-6 rounded-full bg-white absolute transition-transform duration-300 transform"></span>
                     </label>
                 </div>
-
+                <!-- Is Active -->
                 <div class="status">
                     <span class="ml-2 mb-1">Status</span>
                     <input type="checkbox" name="isActive" id="isActive" class="toggle-checkbox hidden">
@@ -70,13 +74,15 @@
                     </label>
                 </div>
             </div>
-
+            
+            <!-- Password -->
             <div>
                 <label for="create-password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
                 <input type="password" name="password" id="create-password" required class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Enter your password">
                 <div id="error-password" class="text-red-500 text-sm mt-1"></div>
             </div>
 
+            <!-- Choose image -->
             <div>
                 <label for="avatar" class="block text-sm font-medium text-gray-700 mb-1">Avatar Image</label>
                 <input type="file" name="avatar" id="avatar" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
@@ -84,9 +90,11 @@
             </div>
 
             <div class="flex items-center mt-4 space-x-4">
+                <!-- Create form -->
                 <button type="submit" id="create-user" class="rounded-md transition-colors duration-200 bg-blue-500 text-white px-4 py-2 hover:bg-blue-600">
                     Create
                 </button>
+                <!-- Cancel form -->
                 <a href="#" id="closeCreateModal" class="text-center rounded-md bg-gray-200 px-4 py-2 hover:bg-gray-300">
                     Cancel
                 </a>

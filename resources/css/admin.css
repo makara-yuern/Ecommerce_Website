@@ -11,10 +11,21 @@
   background-color: white;
 }
 
-.select-user-country, .select-user-type {
+.select-user-country, .select-user-type, .select-category, .select-size, .select-variant-size {
     display: flex;
     flex-direction: column;
     font-size: 14px;
+}
+
+#createProductModal {
+  max-height: 90vh; /* Adjust as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Content inside the modal */
+.bg-white {
+  max-height: 100%; /* Ensure modal content does not exceed the container */
+  overflow-y: auto; /* Enable vertical scrolling for the content */
 }
 
 .select2-container--default .select2-selection--single {

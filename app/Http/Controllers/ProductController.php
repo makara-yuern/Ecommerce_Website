@@ -5,31 +5,38 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Category;
 use App\Models\Product;
+use App\Http\Services\ProductService;
+use App\Models\Size;
 
 class ProductController extends Controller
 {
-    public function index()
+    protected $productService;
+
+    // Inject ProductService into the controller
+    public function __construct(ProductService $productService)
     {
-        $products = Product::all();
-        return view('products.index', compact('products'));
+        $this->productService = $productService;
     }
 
-    public function create()
+    public function index()
     {
-        return view('products.create');
+        $products = Product::with('category')->get();
+        $categories = Category::all();
+        $sizes = Size::all();
+        return view('admin.products.index', compact('products', 'categories', 'sizes'));
     }
 
     public function store(StoreProductRequest $request)
     {
-        // Handle image upload if necessary
-        $imagePath = $request->file('image')->store('images', 'public');
+        try {
+            $product = $this->productService->createProduct($request->validated());
 
-        Product::create(array_merge($request->validated(), [
-            'image' => $imagePath,
-        ]));
-
-        return redirect()->route('products.index');
+            return response()->json(['message' => 'Product created successfully', 'product' => $product], 201);
+        } catch (\Exception $e) {
+            return response()->json(['errors' => $e->getMessage()], 400);
+        }
     }
 
     public function show(Product $product)

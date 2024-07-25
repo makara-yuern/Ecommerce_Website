@@ -1,20 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.sidebar {
-    width: 200px;
-    a {
-        white-space: nowrap;
-    }
-
-    &.minimize {
-        width: 64px;
-        a {
-            white-space: nowrap;
-            span {
-                display: none;
-            }
-        }
-    }
-}
